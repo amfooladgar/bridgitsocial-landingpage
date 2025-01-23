@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridgit Social - Join the Waitlist</title>
+    <title>Bridgit Social - Coming Soon</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,29 +13,47 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f9f9f9;
+            background-image: url('Banner.png'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #333;
         }
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             max-width: 400px;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95); /* Slight transparency */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
-        .logo {
+        .logo img {
+            width: 100px;
+            margin-bottom: 10px;
+            border-radius: 8px; /* Corner radius for logo */
+        }
+        .headline {
             font-size: 24px;
             font-weight: bold;
             color: #0073e6;
+            margin: 10px 0;
         }
-        .tagline {
+        .subtext {
             margin: 15px 0;
             font-size: 18px;
             color: #555;
         }
+        .call-to-action {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
         .waitlist-form {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .waitlist-form input[type="email"] {
             width: 100%;
@@ -43,6 +61,7 @@
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
+            box-sizing: border-box;
         }
         .waitlist-form button {
             width: 100%;
@@ -79,19 +98,32 @@
             font-size: 12px;
             color: #aaa;
         }
+        .footer a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">Bridgit Social</div>
-        <p class="tagline">Real-time in-person connections. Discover, connect, and belong.</p>
-        <p>Be the first to join our platform and expand your network!</p>
+        <div class="logo">
+            <img src="appstore.png" alt="Bridgit Social Logo">
+        </div>
+        <p class="headline">Bridgit Social is Coming Soon!</p>
+        <p class="subtext">Be among the first to experience real-time, in-person connections and expand your network.</p>
+        <p class="call-to-action">Sign up now to secure your spot among the first 100 users!</p>
         <form class="waitlist-form" id="waitlistForm">
             <input type="email" id="email" placeholder="Enter your email address" required>
             <button type="submit">Join the Waitlist</button>
         </form>
         <div id="message" class="message"></div>
-        <div class="footer">We respect your privacy. Your email will never be shared.</div>
+        <div class="footer">
+            We respect your privacy. Your email will never be shared. <br>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
     </div>
 
     <script>
@@ -110,21 +142,17 @@
                 });
 
                 if (response.ok) {
-                    // Success: Show success message
-                    showMessage("Successfully joined the waitlist!", "success");
+                    showMessage("Thank you for joining the waitlist! We'll keep you updated.", "success");
                     form.reset();
                 } else if (response.status === 409) {
-                    // Duplicate email: Show error message
                     const error = await response.json();
-                    showMessage(error.error || "Email already on the waitlist", "error");
+                    showMessage(error.error || "Email already on the waitlist.", "error");
                 } else {
-                    // Other errors
                     const error = await response.json();
                     showMessage(error.error || "Something went wrong. Please try again.", "error");
                 }
             } catch (err) {
-                // Network or server error
-                showMessage("Failed to connect. Please try again later.", "error");
+                showMessage("Failed to connect. Please check your internet connection and try again.", "error");
             }
         });
 
