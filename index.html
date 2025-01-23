@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bridgit Social - Coming Soon</title>
     <style>
+        /* Body Styling */
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-image: url('Banner.png'); /* Background image */
+            background-image: url('Banner.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -21,51 +20,58 @@
         }
         .container {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
+            width: 90%;
             max-width: 400px;
-            background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
         .logo img {
-            width: 100px;
+            width: 80px;
             margin-bottom: 10px;
-            border-radius: 8px; /* Corner radius for logo */
+            border-radius: 8px;
         }
         .headline {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #0073e6;
             margin: 10px 0;
         }
         .subtext {
             margin: 15px 0;
-            font-size: 18px;
+            font-size: 16px;
             color: #555;
         }
         .call-to-action {
             margin: 15px 0;
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
             font-weight: bold;
         }
-        .waitlist-form {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
         .waitlist-form input[type="email"] {
-            width: 100%;
+            width: calc(100% - 20px); /* Adjust width to account for padding */
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
-            box-sizing: border-box;
+            font-size: 14px;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        .waitlist-form label {
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .waitlist-form input[type="checkbox"] {
+            margin-right: 10px;
         }
         .waitlist-form button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #0073e6;
             color: #fff;
             border: none;
@@ -76,34 +82,10 @@
         .waitlist-form button:hover {
             background-color: #005bb5;
         }
-        .message {
-            margin-top: 20px;
-            font-size: 14px;
-            padding: 10px;
-            border-radius: 5px;
-            display: none; /* Hidden by default */
-        }
-        .message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
         .footer {
             margin-top: 20px;
             font-size: 12px;
             color: #aaa;
-        }
-        .footer a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -113,10 +95,14 @@
             <img src="appstore.png" alt="Bridgit Social Logo">
         </div>
         <p class="headline">Bridgit Social is Coming Soon!</p>
-        <p class="subtext">Be among the first to experience real-time, in-person connections and expand your network.</p>
+        <p class="subtext">Available only in NYC for this phase. Join the waitlist if you're ready to connect in NYC!</p>
         <p class="call-to-action">Sign up now to secure your spot among the first 100 users!</p>
         <form class="waitlist-form" id="waitlistForm">
             <input type="email" id="email" placeholder="Enter your email address" required>
+            <label>
+                <input type="checkbox" id="nyc-confirmation" required>
+                I understand and agree that I will only join the waitlist if I plan to use it in NYC. I also understand the app will be restricted if used outside NYC.
+            </label>
             <button type="submit">Join the Waitlist</button>
         </form>
         <div id="message" class="message"></div>
@@ -125,7 +111,6 @@
             <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
         </div>
     </div>
-
     <script>
         const form = document.getElementById("waitlistForm");
         const messageDiv = document.getElementById("message");
@@ -133,12 +118,18 @@
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             const email = document.getElementById("email").value;
+            const nycConfirmation = document.getElementById("nyc-confirmation").checked;
+
+            if (!nycConfirmation) {
+                showMessage("You must agree to the NYC usage terms before joining the waitlist.", "error");
+                return;
+            }
 
             try {
                 const response = await fetch("https://us-central1-bridgitsocial.cloudfunctions.net/addToWaitlist", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email }),
+                    body: JSON.stringify({ email, nycConfirmation }),
                 });
 
                 if (response.ok) {
