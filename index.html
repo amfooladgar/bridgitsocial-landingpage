@@ -138,8 +138,9 @@
             <input type="text" id="name" placeholder="Enter your name (optional)">
             <input type="email" id="email" placeholder="Enter your email address" required>
             <input type="text" id="profession" placeholder="Your profession" required>     
-            <input type="text" id="reason" placeholder="Why do you want to join Bridgit? (optional)"></textarea>
-            <input type="text" id="excitement" placeholder="What excites you most about Bridgit? (optional)"></textarea>
+            <input type="text" id="reason" placeholder="Why do you want to join Bridgit? (optional)">
+            <input type="text" id="excitement" placeholder="What excites you most about Bridgit? (optional)">
+            <input type="text" id="referralCode" placeholder="Referral code (if any)">
             <label>
                 <input type="checkbox" id="nyc-confirmation" required>
                 I’m ready to redefine networking in NYC. I understand the app is designed for NYC users and may be restricted elsewhere.
@@ -147,6 +148,7 @@
             <button type="submit">Secure My Spot</button>
         </form>
         <div id="message" class="message"></div>
+        <div id="referralSection" class="referral-section">Your referral code: <span id="referralCodeDisplay"></span><br> Share this with friends to get rewards!</div>
         <div class="footer">
             Your journey begins here. Your privacy is our priority. <br>
             <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
@@ -155,6 +157,8 @@
     <script>
         const form = document.getElementById("waitlistForm");
         const messageDiv = document.getElementById("message");
+        const referralSection = document.getElementById("referralSection");
+        const referralCodeDisplay = document.getElementById("referralCodeDisplay");
         
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -164,7 +168,8 @@
                 profession: document.getElementById("profession").value,
                 reason: document.getElementById("reason").value || null,
                 excitement: document.getElementById("excitement").value || null,
-                nycConfirmation: document.getElementById("nyc-confirmation").value
+                nycConfirmation: document.getElementById("nyc-confirmation").value,
+                referralCode: document.getElementById("referralCode").value || null,
             };
             if (!data.nycConfirmation) {
                 showMessage(
