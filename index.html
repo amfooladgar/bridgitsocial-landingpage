@@ -137,6 +137,9 @@
         <form class="waitlist-form" id="waitlistForm">
             <input type="text" id="name" placeholder="Enter your name (optional)">
             <input type="email" id="email" placeholder="Enter your email address" required>
+            <input type="text" id="profession" placeholder="Your profession" required>     
+            <input type="text" id="reason" placeholder="Why do you want to join Bridgit? (optional)"></textarea>
+            <input type="text" id="excitement" placeholder="What excites you most about Bridgit? (optional)"></textarea>
             <label>
                 <input type="checkbox" id="nyc-confirmation" required>
                 I’m ready to redefine networking in NYC. I understand the app is designed for NYC users and may be restricted elsewhere.
@@ -155,11 +158,15 @@
         
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const name = document.getElementById("name").value || null; 
-            const email = document.getElementById("email").value;
-            const nycConfirmation = document.getElementById("nyc-confirmation").checked;
-
-            if (!nycConfirmation) {
+            const data = {
+                name: document.getElementById("name").value || null,
+                email: document.getElementById("email").value,
+                profession: document.getElementById("profession").value,
+                reason: document.getElementById("reason").value || null,
+                excitement: document.getElementById("excitement").value || null,
+                nycConfirmation: document.getElementById("nyc-confirmation").value
+            };
+            if (!data.nycConfirmation) {
                 showMessage(
                     "You must agree to the NYC usage terms before joining the waitlist.",
                     "error"
@@ -173,13 +180,13 @@
                     {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ name, email, nycConfirmation }),
+                        body: JSON.stringify(data),
                     }
                 );
-
+                const result = await response.json();
                 if (response.ok) {
-                    const data = await response.json();
-                    showMessage(data.message, "success");
+                    
+                    showMessage(result.message, "success");
                     form.reset();
                 } else if (response.status === 409) {
                     const error = await response.json();
@@ -203,7 +210,7 @@
         });
 
         function showMessage(text, type) {
-            const messageDiv = document.getElementById("message");
+            
             messageDiv.textContent = text;
             messageDiv.className = `message ${type}`;
             messageDiv.style.display = "block";
