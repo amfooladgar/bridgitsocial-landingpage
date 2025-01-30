@@ -122,6 +122,13 @@
             font-size: 12px;
             color: #aaa;
         }
+        .referral-section {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #0073e6;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +155,7 @@
             <button type="submit">Secure My Spot</button>
         </form>
         <div id="message" class="message"></div>
-        <div id="referralSection" class="referral-section">Your referral code: <span id="referralCodeDisplay"></span><br> Share this with friends to get rewards!</div>
+        <div id="referralSection" class="referral-section" style="display: none;">Your referral code: <span id="referralCodeDisplay"></span><br> Share this with friends to get rewards!</div>
         <div class="footer">
             Your journey begins here. Your privacy is our priority. <br>
             <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
@@ -192,6 +199,8 @@
                 if (response.ok) {
                     
                     showMessage(result.message, "success");
+                    referralCodeDisplay.textContent = result.referralCode;
+                    referralSection.style.display = "block";
                     form.reset();
                 } else if (response.status === 409) {
                     const error = await response.json();
