@@ -153,6 +153,9 @@
                 I’m ready to redefine networking in NYC. I understand the app is designed for NYC users and may be restricted elsewhere.
             </label>
             <button type="submit">Secure My Spot</button>
+            <div id="loadingIndicator" style="display: none; margin-top: 10px; font-size: 14px; color: #0073e6;">
+                Processing your request...
+            </div>
         </form>
         <div id="message" class="message"></div>
         <div id="referralSection" class="referral-section" style="display: none;">Your referral code: <span id="referralCodeDisplay"></span><br> Share this with friends to get rewards!</div>
@@ -166,9 +169,17 @@
         const messageDiv = document.getElementById("message");
         const referralSection = document.getElementById("referralSection");
         const referralCodeDisplay = document.getElementById("referralCodeDisplay");
+        const submitButton = form.querySelector("button[type='submit']");
+        const loadingIndicator = document.getElementById("loadingIndicator");
+
         
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
+            // Disable submit button and show loading indicator
+            submitButton.disabled = true;
+            submitButton.style.backgroundColor = "#ccc";
+            loadingIndicator.style.display = "block";
+
             const data = {
                 name: document.getElementById("name").value || null,
                 email: document.getElementById("email").value,
@@ -183,6 +194,7 @@
                     "You must agree to the NYC usage terms before joining the waitlist.",
                     "error"
                 );
+                resetFormState();
                 return;
             }
 
@@ -221,6 +233,7 @@
                     "error"
                 );
             }
+            resetFormState();
         });
 
         function showMessage(text, type) {
@@ -229,6 +242,14 @@
             messageDiv.className = `message ${type}`;
             messageDiv.style.display = "block";
         }
+        
+        function resetFormState() {
+                // Re-enable submit button and hide loading indicator
+            submitButton.disabled = false;  
+            submitButton.style.backgroundColor = "#0073e6";
+            loadingIndicator.style.display = "none";
+        }
+
 
     </script>
 </body>
