@@ -186,7 +186,7 @@
                 profession: document.getElementById("profession").value,
                 reason: document.getElementById("reason").value || null,
                 excitement: document.getElementById("excitement").value || null,
-                nycConfirmation: document.getElementById("nyc-confirmation").value,
+                nycConfirmation: document.getElementById("nyc-confirmation").checked,
                 referralCode: document.getElementById("referralCode").value || null,
             };
             if (!data.nycConfirmation) {
@@ -208,25 +208,16 @@
                     }
                 );
                 const result = await response.json();
+
                 if (response.ok) {
-                    
                     showMessage(result.message, "success");
                     referralCodeDisplay.textContent = result.referralCode;
                     referralSection.style.display = "block";
                     form.reset();
-                } else if (response.status === 409) {
-                    const error = await response.json();
-                    showMessage(
-                        error.error || "Email already on the waitlist.",
-                        "error"
-                    );
                 } else {
-                    const error = await response.json();
-                    showMessage(
-                        error.error || "Something went wrong. Please try again.",
-                        "error"
-                    );
+                    showMessage(result.error || "Something went wrong. Please try again.", "error");
                 }
+
             } catch (err) {
                 showMessage(
                     "Failed to connect. Please check your internet connection and try again.",
