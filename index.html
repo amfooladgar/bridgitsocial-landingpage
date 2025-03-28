@@ -136,21 +136,15 @@
         <div class="logo">
             <img src="appstore3x.png" alt="Bridgit Social Logo">
         </div>
-        <p class="headline">What If Your Next Connection Could Change Everything?</p>
         <p class="headline">Bridgit Social Is Almost Here.</p>
-        <p class="call-to-action">A revolutionary way to connect, exclusive to NYC.</p>
-        <p class="subtext">Be among the first to explore a bold, new approach to professional networking. Are you ready to discover what’s next?</p>
         <p class="call-to-action">Spots are limited. Claim yours now.</p>
         <form class="waitlist-form" id="waitlistForm">
             <input type="text" id="name" placeholder="Enter your name (optional)">
             <input type="email" id="email" placeholder="Enter your email address" required>
-            <input type="text" id="profession" placeholder="Your profession" required>     
-            <input type="text" id="reason" placeholder="Why do you want to join Bridgit? (optional)">
-            <input type="text" id="excitement" placeholder="What excites you most about Bridgit? (optional)">
             <input type="text" id="referralCode" placeholder="Referral code (if any)">
             <label>
                 <input type="checkbox" id="nyc-confirmation" required>
-                I’m ready to redefine networking in NYC. I understand the app is designed for NYC users and may be restricted elsewhere.
+                I understand the app is currently designed for NYC users and may be restricted elsewhere.
             </label>
             <button type="submit">Secure My Spot</button>
             <div id="loadingIndicator" style="display: none; margin-top: 10px; font-size: 14px; color: #0073e6;">
@@ -161,7 +155,7 @@
         <div id="referralSection" class="referral-section" style="display: none;">Your referral code: <span id="referralCodeDisplay"></span><br> Share this with friends to get rewards!</div>
         <div class="footer">
             Your journey begins here. Your privacy is our priority. <br>
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            <a href="PrivacyPolicy/PrivacyPolicyBridgitSocial.html">Privacy Policy</a> | <a href="PrivacyPolicy/TermsofUse_TOU_BridgitSocial.html">Terms of Service</a>
         </div>
     </div>
     <script>
@@ -183,9 +177,6 @@
             const data = {
                 name: document.getElementById("name").value || null,
                 email: document.getElementById("email").value,
-                profession: document.getElementById("profession").value,
-                reason: document.getElementById("reason").value || null,
-                excitement: document.getElementById("excitement").value || null,
                 nycConfirmation: document.getElementById("nyc-confirmation").checked,
                 referralCode: document.getElementById("referralCode").value || null,
             };
