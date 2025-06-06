@@ -165,6 +165,7 @@
         const referralCodeDisplay = document.getElementById("referralCodeDisplay");
         const submitButton = form.querySelector("button[type='submit']");
         const loadingIndicator = document.getElementById("loadingIndicator");
+        
 
         
         form.addEventListener("submit", async (e) => {
@@ -173,7 +174,11 @@
             submitButton.disabled = true;
             submitButton.style.backgroundColor = "#ccc";
             loadingIndicator.style.display = "block";
-
+            const referralCode = getReferralCodeFromURL();
+            if (referralCode) {
+                document.getElementById("referralCode").value = referralCode;
+            }
+            
             const data = {
                 name: document.getElementById("name").value || null,
                 email: document.getElementById("email").value,
@@ -232,6 +237,10 @@
             loadingIndicator.style.display = "none";
         }
 
+        function getReferralCodeFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("ref");
+        }
 
     </script>
 </body>
