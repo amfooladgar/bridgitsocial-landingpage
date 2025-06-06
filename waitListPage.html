@@ -159,6 +159,20 @@
         </div>
     </div>
     <script>
+
+        function getReferralCodeFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("ref");
+        }
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const referralCode = getReferralCodeFromURL();
+            if (referralCode) {
+                document.getElementById("referralCode").value = referralCode;
+            }
+        });
+
+        
         const form = document.getElementById("waitlistForm");
         const messageDiv = document.getElementById("message");
         const referralSection = document.getElementById("referralSection");
@@ -167,6 +181,7 @@
         const loadingIndicator = document.getElementById("loadingIndicator");
         
 
+
         
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -174,10 +189,7 @@
             submitButton.disabled = true;
             submitButton.style.backgroundColor = "#ccc";
             loadingIndicator.style.display = "block";
-            const referralCode = getReferralCodeFromURL();
-            if (referralCode) {
-                document.getElementById("referralCode").value = referralCode;
-            }
+
             
             const data = {
                 name: document.getElementById("name").value || null,
@@ -235,11 +247,6 @@
             submitButton.disabled = false;  
             submitButton.style.backgroundColor = "#0073e6";
             loadingIndicator.style.display = "none";
-        }
-
-        function getReferralCodeFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get("ref");
         }
 
     </script>
