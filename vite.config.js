@@ -66,15 +66,6 @@ export default defineConfig({
     devSourcemap: true,
   },
 
-  // Copy additional static files
-  publicDir: 'public',  // Vite won't use this by default since we have assets
-  
-  // Ensure these directories are copied
-  // Note: Vite automatically copies 'public' dir, but we need custom handling
-  build: {
-    copyPublicDir: false,  // We'll handle copying manually in the build
-  },
-
   // Plugin configuration (add as needed)
   plugins: [],
 });

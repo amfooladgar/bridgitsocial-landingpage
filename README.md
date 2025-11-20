@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Bridgit Social](images/icons/logo.png)
+<img src="images/icons/logo.png" alt="Bridgit Social" width="200" />
 
 **Real Connections, Real Time, Real Places**
 
