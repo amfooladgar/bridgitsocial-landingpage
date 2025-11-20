@@ -1,0 +1,40 @@
+{
+  "name": "bridgit-social-landingpage",
+  "version": "1.0.0",
+  "description": "Official landing page for Bridgit Social - Real Connections, Real Time, Real Places",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:blog": "node scripts/build-blog.js",
+    "preview": "vite preview",
+    "deploy": "npm run build && npm run build:blog && sh scripts/deploy.sh",
+    "check-links": "echo 'Link checking - to be implemented'",
+    "format": "prettier --write \"**/*.{js,css,html,md}\"",
+    "format:check": "prettier --check \"**/*.{js,css,html,md}\""
+  },
+  "keywords": [
+    "bridgit-social",
+    "landing-page",
+    "networking",
+    "social-app",
+    "location-based"
+  ],
+  "author": "Bridgit Group LLC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amfooladgar/bridgitsocial-landingpage.git"
+  },
+  "homepage": "https://bridgitsocial.com",
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "prettier": "^3.1.0",
+    "marked": "^11.0.0",
+    "gray-matter": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

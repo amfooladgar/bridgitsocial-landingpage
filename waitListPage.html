@@ -2,35 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridgit Social - Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Bridgit Social - Join the Waitlist</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join the Bridgit Social waitlist. Be among the first to experience real connections in real time. Limited spots available.">
+    <meta name="author" content="Bridgit Group LLC">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" href="images/icons/facicon.png" type="image/png">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
     <style>
         /* Body Styling */
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-image: url('Banner3x.png');
+            background-image: url('images/banners/Banner3x.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #333;
-
-
-            /* Smaller screens (e.g., tablets) */
-            @media (max-width: 1024px) {
-                body {
-                    background-image: url('Banner2x.png'); /* Medium-sized image */
-                }
+            padding-top: 80px;
+        }
+        
+        /* Smaller screens (e.g., tablets) */
+        @media (max-width: 1024px) {
+            body {
+                background-image: url('images/banners/Banner2x.png');
             }
+        }
 
-            /* Extra small screens (e.g., mobile phones) */
-            @media (max-width: 600px) {
-                body {
-                    background-image: url('Banner.png'); /* Small-sized image */
-                }
+        /* Extra small screens (e.g., mobile phones) */
+        @media (max-width: 600px) {
+            body {
+                background-image: url('images/banners/Banner1x.png');
+                padding-top: 60px;
             }
         }
         
@@ -131,10 +143,33 @@
         }
     </style>
 </head>
-<body>
+<body class="is-preload">
+    <!-- Header -->
+    <header id="header" style="position: fixed; top: 0; width: 100%; z-index: 1000;">
+        <a href="index.html">
+            <img src="images/icons/facicon.png" alt="Bridgit Social Logo" style="height: 40px; vertical-align: middle; margin-right: 10px">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="index.html#intro">Home</a></li>
+            <li><a href="index.html#one">Features</a></li>
+            <li><a href="index.html#work">Screenshots</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="instructions.html">How To Use</a></li>
+            <li><a href="waitListPage.html">Join Waitlist</a></li>
+            <li><a href="support/support.html">Support</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
     <div class="container">
         <div class="logo">
-            <img src="appstore3x.png" alt="Bridgit Social Logo">
+            <img src="images/icons/appstore3x.png" alt="Bridgit Social Logo">
         </div>
         <p class="headline">Bridgit Social Is Almost Here.</p>
         <p class="call-to-action">Spots are limited. Claim yours now.</p>
@@ -249,6 +284,72 @@
             loadingIndicator.style.display = "none";
         }
 
+    </script>
+    
+    <!-- Footer -->
+    <footer id="footer" style="position: relative; margin-top: 40px; background: rgba(0, 0, 0, 0.8);">
+        <ul class="icons">
+      <li>
+        <a href="https://www.linkedin.com/company/bridgit-social" class="icon brands">
+          <i class="fab fa-linkedin-in"></i>
+          <span class="label">LinkedIn</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/bridgit.social/" class="icon brands">
+          <i class="fab fa-instagram"></i>
+          <span class="label">Instagram</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://apps.apple.com/us/app/bridgit-social/id6743941115" class="icon brands">
+          <i class="fab fa-apple"></i>
+          <span class="label">App Store</span>
+        </a>
+      </li>
+    </ul>
+        <ul class="menu">
+            <li>&copy;Copyright Bridgit Social 2025</li>
+        </ul>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Nav Toggle Script -->
+    <script>
+      (function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (navToggle && navMenu) {
+          navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('nav-open');
+          });
+          
+          const navLinks = navMenu.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              navToggle.classList.remove('active');
+              navMenu.classList.remove('nav-open');
+            });
+          });
+          
+          document.addEventListener('click', function(event) {
+            const isClickInside = navToggle.contains(event.target) || navMenu.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('nav-open')) {
+              navToggle.classList.remove('active');
+              navMenu.classList.remove('nav-open');
+            }
+          });
+        }
+      })();
     </script>
 </body>
 </html>
