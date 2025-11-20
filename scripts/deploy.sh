@@ -15,6 +15,13 @@ npm run build
 echo "📝 Generating blog posts..."
 npm run build:blog
 
+# Copy additional static files that Vite doesn't handle
+echo "📋 Copying static files..."
+cp -r PrivacyPolicy dist/
+cp -r email-templates dist/
+cp CNAME dist/ 2>/dev/null || echo "No CNAME file found, skipping..."
+cp app-ads.txt dist/ 2>/dev/null || echo "No app-ads.txt file found, skipping..."
+
 # Create a temporary directory
 TEMP_DIR=$(mktemp -d)
 echo "📁 Created temporary directory: $TEMP_DIR"
@@ -31,6 +38,9 @@ if [ ! -d ".git" ]; then
   git init
   git checkout -b gh-pages
 fi
+
+# Add the correct remote
+git remote add origin https://github.com/amfooladgar/bridgitsocial-landingpage.git 2>/dev/null || echo "Remote already exists"
 
 # Add all files
 git add -A

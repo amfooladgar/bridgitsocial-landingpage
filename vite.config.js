@@ -9,23 +9,23 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true,
+    sourcemap: false,  // Disable sourcemaps for production
     
-    // Multi-page configuration
+    // Multi-page configuration - include ALL HTML pages
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        instructions: resolve(__dirname, 'instructions.html'),
+        waitlist: resolve(__dirname, 'waitListPage.html'),
         blog: resolve(__dirname, 'blog/index.html'),
+        support: resolve(__dirname, 'support/support.html'),
+        blogPost1: resolve(__dirname, 'blog/posts/welcome-to-bridgit-blog.html'),
+        blogPost2: resolve(__dirname, 'blog/posts/networking-tips-2025.html'),
       },
     },
     
-    // Minification
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,  // Remove console.logs in production
-      },
-    },
+    // Use esbuild instead of terser (faster and built-in)
+    minify: 'esbuild',
   },
 
   // Development server
@@ -64,6 +64,15 @@ export default defineConfig({
   // CSS configuration
   css: {
     devSourcemap: true,
+  },
+
+  // Copy additional static files
+  publicDir: 'public',  // Vite won't use this by default since we have assets
+  
+  // Ensure these directories are copied
+  // Note: Vite automatically copies 'public' dir, but we need custom handling
+  build: {
+    copyPublicDir: false,  // We'll handle copying manually in the build
   },
 
   // Plugin configuration (add as needed)
