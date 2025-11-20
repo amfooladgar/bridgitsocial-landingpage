@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="images/icons/logo.png" alt="Bridgit Social" width="200" />
+<img src="images/icons/logo.png" alt="Bridgit Social" width="200" style="border-radius: 20px;" />
 
 **Real Connections, Real Time, Real Places**
 
