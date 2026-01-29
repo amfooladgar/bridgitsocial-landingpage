@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Bridgit Social - Join the Waitlist</title>
+    <title>Bridgit Social - Join the Club</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Join the Bridgit Social waitlist. Be among the first to experience real connections in real time. Limited spots available.">
+    <meta name="description" content="Join the Bridgit Social Exclusive Club. Partner with us, organize events, and shape the future of real-world connections.">
     <meta name="author" content="Bridgit Group LLC">
     
     <!-- Stylesheets -->
@@ -19,7 +19,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Ensure content starts from top */
             align-items: center;
             min-height: 100vh;
             background-image: url('images/banners/Banner3x.png');
@@ -28,7 +28,8 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: #333;
-            padding-top: 80px;
+            padding-top: 150px; /* Safe distance from fixed header */
+            padding-bottom: 50px;
         }
         
         /* Smaller screens (e.g., tablets) */
@@ -42,7 +43,7 @@
         @media (max-width: 600px) {
             body {
                 background-image: url('images/banners/Banner1x.png');
-                padding-top: 60px;
+                padding-top: 120px; /* Safe distance for mobile */
             }
         }
         
@@ -161,7 +162,7 @@
             <li><a href="index.html#work">Screenshots</a></li>
             <li><a href="blog/index.html">Blog</a></li>
             <li><a href="instructions.html">How To Use</a></li>
-            <li><a href="waitListPage.html">Join Waitlist</a></li>
+            <li><a href="waitListPage.html">Join the Club</a></li>
             <li><a href="support/support.html">Support</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -171,8 +172,12 @@
         <div class="logo">
             <img src="images/icons/appstore3x.png" alt="Bridgit Social Logo">
         </div>
-        <p class="headline">Bridgit Social Is Almost Here.</p>
-        <p class="call-to-action">Spots are limited. Claim yours now.</p>
+        <p class="headline">Join the Bridgit Exclusive Club</p>
+        <p class="call-to-action">Partner with us, organize events, or become a venue partner.</p>
+        <p class="subtext">
+            We offer partnership opportunities for event organizers, venue owners, and individuals who want to be part of the Bridgit Exclusive Club.
+            Connect with us to use your venue for networking events or to help spread the word.
+        </p>
         <form class="waitlist-form" id="waitlistForm">
             <input type="text" id="name" placeholder="Enter your name (optional)">
             <input type="email" id="email" placeholder="Enter your email address" required>
@@ -181,7 +186,7 @@
                 <input type="checkbox" id="nyc-confirmation" required>
                 I understand the app is currently designed for US users and may be restricted elsewhere.
             </label>
-            <button type="submit">Secure My Spot</button>
+            <button type="submit">Join the Club</button>
             <div id="loadingIndicator" style="display: none; margin-top: 10px; font-size: 14px; color: #0073e6;">
                 Processing your request...
             </div>
