@@ -46,7 +46,7 @@ This repository is shared publicly to:
 
 If you have questions about what is or isn't included in this repository, please:
 - Open an issue in this repository
-- Email us at [ali.fouladgar@bridgitsocial.com](mailto:ali.fouladgar@bridgitsocial.com)
+- Email us at [support@bridgitsocial.com](mailto:support@bridgitsocial.com)
 
 ---
 

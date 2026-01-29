@@ -334,4 +334,4 @@ Start small. Be intentional. Follow through relentlessly. The network you build 
 **Additional Resources:**
 - [How to Use Bridgit Social: Complete Guide](/instructions.html)
 - [Join Our Community: Waitlist](/waitListPage.html)
-- [Email Us Your Networking Stories](mailto:ali.fouladgar@bridgitsocial.com)
+- [Email Us Your Networking Stories](mailto:partnerships@bridgitsocial.com)

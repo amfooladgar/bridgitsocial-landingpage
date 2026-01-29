@@ -240,7 +240,7 @@ This blog is a two-way street. We want to hear from you:
 
 ### Share Your Story
 
-Used Bridgit to make a meaningful connection? Email us at [ali.fouladgar@bridgitsocial.com](mailto:ali.fouladgar@bridgitsocial.com). We love featuring community stories.
+Used Bridgit to make a meaningful connection? Email us at [partnerships@bridgitsocial.com](mailto:partnerships@bridgitsocial.com). We love featuring community stories.
 
 ### Request Topics
 
@@ -267,7 +267,7 @@ Currently available on iOS, with Android coming soon. Join thousands of professi
 
 ## Stay Connected
 
-- **Email:** [ali.fouladgar@bridgitsocial.com](mailto:ali.fouladgar@bridgitsocial.com)
+- **Email:** [partnerships@bridgitsocial.com](mailto:partnerships@bridgitsocial.com)
 - **LinkedIn:** [@BridgitSocial](https://www.linkedin.com/company/bridgit-social)
 - **Instagram:** [@bridgit.social](https://www.instagram.com/bridgit.social/)
 

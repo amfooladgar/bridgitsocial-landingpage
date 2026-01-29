@@ -195,7 +195,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-- **Email:** [ali.fouladgar@bridgitsocial.com](mailto:ali.fouladgar@bridgitsocial.com)
+- **Email:** [partnerships@bridgitsocial.com](mailto:partnerships@bridgitsocial.com)
 - **LinkedIn:** [Bridgit Social](https://www.linkedin.com/company/bridgit-social)
 - **Instagram:** [@bridgit.social](https://www.instagram.com/bridgit.social/)
 - **App Store:** [Download Bridgit Social](https://apps.apple.com/us/app/bridgit-social/id6743941115)

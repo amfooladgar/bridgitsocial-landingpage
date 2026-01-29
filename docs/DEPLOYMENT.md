@@ -257,7 +257,7 @@ Now every push to `main` automatically deploys!
 
 For deployment issues:
 - Open an issue on GitHub
-- Email: ali.fouladgar@bridgitsocial.com
+- Email: support@bridgitsocial.com
 
 ---
 

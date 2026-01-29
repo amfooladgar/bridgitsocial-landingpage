@@ -396,4 +396,4 @@ Markdown (.md) → Parser → Template → HTML
 
 ---
 
-**Questions?** Open an issue or contact us at ali.fouladgar@bridgitsocial.com
+**Questions?** Open an issue or contact us at support@bridgitsocial.com

@@ -188,7 +188,7 @@ bridgitsocial-landingpage/
 ## Questions?
 
 - Open an issue for discussion
-- Email: ali.fouladgar@bridgitsocial.com
+- Email: partnerships@bridgitsocial.com
 - Check existing issues and PRs first
 
 ## License
