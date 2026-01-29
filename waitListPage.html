@@ -88,6 +88,8 @@
             border-radius: 5px;
             font-size: 14px;
             box-sizing: border-box; /* Ensures padding is included in the width */
+            color: #333 !important; /* Force dark text for visibility on white background */
+            background: #fff !important; /* Force white background */
         }
 
         .waitlist-form label {
@@ -248,7 +250,7 @@
 
             try {
                 const response = await fetch(
-                    "https://us-central1-bridgitsocial.cloudfunctions.net/addToWaitlist",
+                    "https://us-central1-bridgitsocial.cloudfunctions.net/v2-addToWaitlist",
                     {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
