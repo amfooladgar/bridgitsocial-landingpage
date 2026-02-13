@@ -760,27 +760,29 @@ ul.actions.special {
   margin-top: var(--spacing-lg);
 }
 
-.gallery article {
+.gallery.screenshots article {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
   background: var(--color-dark-alt);
   box-shadow: var(--shadow-lg);
   transition: var(--transition-base);
+  aspect-ratio: 4 / 5;
 }
 
-.gallery article:hover {
+.gallery.screenshots article:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-glow), var(--shadow-xl);
 }
 
-.gallery article a.image {
+.gallery.screenshots article a.image {
   display: block;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
-.gallery article a.image::after {
+.gallery.screenshots article a.image::after {
   content: "";
   position: absolute;
   top: 0;
@@ -792,18 +794,20 @@ ul.actions.special {
   transition: var(--transition-base);
 }
 
-.gallery article:hover a.image::after {
+.gallery.screenshots article:hover a.image::after {
   opacity: 1;
 }
 
-.gallery article img {
+.gallery.screenshots article img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
   display: block;
   transition: var(--transition-base);
 }
 
-.gallery article:hover img {
+.gallery.screenshots article:hover img {
   transform: scale(1.05);
 }
 
