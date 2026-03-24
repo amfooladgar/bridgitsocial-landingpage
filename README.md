@@ -26,7 +26,8 @@
 
 Bridgit Social is a location-based networking app that helps you discover and connect with real people, in real time, wherever you are. Whether you're at a café, coworking space, or just nearby, Bridgit makes meaningful connections effortless.
 
-**Download on the App Store:** [Bridgit Social](https://apps.apple.com/us/app/bridgit-social/id6743941115)
+**Download on the App Store:** [Bridgit Social](https://apps.apple.com/us/app/bridgit-social/id6743941115)  
+**Get it on Google Play:** [Bridgit Social](https://play.google.com/store/apps/details?id=com.bridgitsocial.android_prod)
 
 ### Key Features
 
@@ -199,6 +200,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **LinkedIn:** [Bridgit Social](https://www.linkedin.com/company/bridgit-social)
 - **Instagram:** [@bridgit.social](https://www.instagram.com/bridgit.social/)
 - **App Store:** [Download Bridgit Social](https://apps.apple.com/us/app/bridgit-social/id6743941115)
+- **Google Play:** [Get it on Google Play](https://play.google.com/store/apps/details?id=com.bridgitsocial.android_prod)
 
 ## 🙏 Acknowledgments
 

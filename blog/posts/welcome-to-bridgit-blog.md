@@ -6,7 +6,7 @@ tags: ["announcement", "bridgit-social", "networking"]
 excerpt: "Introducing the Bridgit Social blog - your source for networking tips, app updates, and community stories."
 ---
 
-# Welcome to the Bridgit Social Blog
+
 
 We're thrilled to launch the official Bridgit Social blog—your go-to resource for transforming how you network, connect, and build meaningful professional relationships.
 
@@ -254,9 +254,9 @@ Bridgit is built for you. Tell us what's working, what's not, and what features 
 
 Ready to transform how you network?
 
-**[Download Bridgit Social on the App Store →](https://apps.apple.com/us/app/bridgit-social/id6743941115)**
+**[Download on the App Store](https://apps.apple.com/us/app/bridgit-social/id6743941115) | [Get it on Google Play](https://play.google.com/store/apps/details?id=com.bridgitsocial.android_prod)**
 
-Currently available on iOS, with Android coming soon. Join thousands of professionals already networking smarter with Bridgit.
+Now available on both iOS and Android. Join thousands of professionals already networking smarter with Bridgit.
 
 ### New User? Start Here:
 

@@ -6,7 +6,7 @@ tags: ["networking", "tips", "productivity"]
 excerpt: "Master the art of networking with these proven strategies for making meaningful professional connections."
 ---
 
-# 5 Tips for Effective Networking in 2025
+
 
 The landscape of professional networking has fundamentally changed. Gone are the days of collecting business cards at stuffy conferences. Today's most successful networkers blend digital tools with authentic human connection to build relationships that truly matter.
 
@@ -325,7 +325,7 @@ Start small. Be intentional. Follow through relentlessly. The network you build 
 
 **Ready to network smarter and more authentically?** 
 
-[Download Bridgit Social →](https://apps.apple.com/us/app/bridgit-social/id6743941115)
+[Download on the App Store](https://apps.apple.com/us/app/bridgit-social/id6743941115) | [Get it on Google Play](https://play.google.com/store/apps/details?id=com.bridgitsocial.android_prod)
 
 ---
 

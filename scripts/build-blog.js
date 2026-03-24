@@ -55,66 +55,184 @@ function generatePostHTML(post) {
   <title>${post.frontmatter.title} - Bridgit Social Blog</title>
   <meta name="description" content="${post.frontmatter.excerpt}" />
   <meta name="author" content="${post.frontmatter.author}" />
-  <meta name="keywords" content="${post.frontmatter.tags.join(', ')}" />
+  ${post.frontmatter.tags ? `<meta name="keywords" content="${post.frontmatter.tags.join(', ')}" />` : ''}
   <link rel="stylesheet" href="../../assets/css/main.css" />
-  <link rel="icon" href="../../facicon.png" type="image/png" />
+  <link rel="icon" href="../../images/icons/facicon.png" type="image/png" />
+  <style>
+    .blog-post {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    .blog-post h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+    }
+    .blog-meta {
+      color: var(--color-text-light);
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .blog-content h2 {
+      color: var(--color-accent-light);
+      font-size: 1.8rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .blog-content h3 {
+      color: var(--color-white);
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .blog-content p {
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .blog-content ul, .blog-content ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+      line-height: 1.8;
+    }
+    .blog-content li {
+      margin-bottom: 0.5rem;
+    }
+    .blog-content strong {
+      color: var(--color-accent-light);
+    }
+    @media screen and (max-width: 768px) {
+      .blog-post {
+        padding-top: 100px;
+      }
+      .blog-post h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="is-preload">
   <!-- Header -->
   <header id="header">
     <a href="../../index.html">
-      <img src="../../facicon.png" alt="Bridgit Social Logo" style="height: 40px; vertical-align: middle; margin-right: 10px" />
+      <img src="../../images/icons/facicon.png" alt="Bridgit Social Logo" style="height: 40px; vertical-align: middle; margin-right: 10px" />
     </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
-      <ul>
+      <ul id="navMenu">
         <li><a href="../../index.html#intro">Home</a></li>
-        <li><a href="../../index.html#one">How It Works</a></li>
+        <li><a href="../../index.html#one">Features</a></li>
         <li><a href="../../index.html#work">Screenshots</a></li>
         <li><a href="../index.html">Blog</a></li>
+        <li><a href="../../instructions.html">How To Use</a></li>
+        <li><a href="../../waitListPage.html">Join the Club</a></li>
+        <li><a href="../../support/support.html">Support</a></li>
         <li><a href="../../index.html#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Article -->
-  <article id="blog-post" class="main style2" style="padding-top: 120px;">
-    <div class="content" style="max-width: 800px;">
-      <header style="margin-bottom: 2rem;">
-        <h1>${post.frontmatter.title}</h1>
-        <p class="meta">
-          ${post.frontmatter.date} • ${post.frontmatter.author}
-          ${post.frontmatter.tags ? ` • ${post.frontmatter.tags.map(tag => `#${tag}`).join(' ')}` : ''}
-        </p>
-      </header>
-
-      <div class="blog-content">
-        ${post.html}
-      </div>
-
-      <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-        <a href="../index.html" class="button">← Back to Blog</a>
-      </footer>
+  <article class="blog-post">
+    <h1>${post.frontmatter.title}</h1>
+    
+    <div class="blog-meta">
+      <span>${post.frontmatter.date}</span> • <span>${post.frontmatter.author}</span>
+      ${post.frontmatter.tags ? ` • <span>${post.frontmatter.tags.map(tag => `#${tag}`).join(' ')}</span>` : ''}
     </div>
+
+    <div class="blog-content">
+      ${post.html}
+    </div>
+
+    <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <a href="../index.html" class="button style2">← Back to Blog</a>
+    </footer>
   </article>
 
   <!-- Footer -->
   <footer id="footer">
     <ul class="icons">
-      <li><a href="https://www.linkedin.com/company/bridgit-social" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-      <li><a href="https://www.instagram.com/bridgit.social/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-      <li><a href="https://apps.apple.com/us/app/bridgit-social/id6743941115" class="icon brands fa-apple"><span class="label">App Store</span></a></li>
+      <li>
+        <a href="https://www.linkedin.com/company/bridgit-social" class="icon brands">
+          <i class="fab fa-linkedin-in"></i>
+          <span class="label">LinkedIn</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/bridgit.social/" class="icon brands">
+          <i class="fab fa-instagram"></i>
+          <span class="label">Instagram</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://apps.apple.com/us/app/bridgit-social/id6743941115" class="icon brands">
+          <i class="fab fa-apple"></i>
+          <span class="label">App Store</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://play.google.com/store/apps/details?id=com.bridgitsocial.android_prod" class="icon brands">
+          <i class="fab fa-google-play"></i>
+          <span class="label">Google Play</span>
+        </a>
+      </li>
     </ul>
     <ul class="menu">
       <li>&copy;Copyright Bridgit Social 2025</li>
+    </ul>
+    <ul class="menu">
+      <li>
+        <a href="../../PrivacyPolicy/PrivacyPolicyBridgitSocial.html">Privacy Policy</a>
+        |
+        <a href="../../PrivacyPolicy/TermsofUse_TOU_BridgitSocial.html">Terms of Service</a>
+      </li>
     </ul>
   </footer>
 
   <!-- Scripts -->
   <script src="../../assets/js/jquery.min.js"></script>
+  <script src="../../assets/js/jquery.scrolly.min.js"></script>
   <script src="../../assets/js/browser.min.js"></script>
   <script src="../../assets/js/breakpoints.min.js"></script>
   <script src="../../assets/js/util.js"></script>
   <script src="../../assets/js/main.js"></script>
+
+  <!-- Nav Toggle Script -->
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+          navToggle.classList.toggle('active');
+          navMenu.classList.toggle('nav-open');
+        });
+        
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('nav-open');
+          });
+        });
+        
+        document.addEventListener('click', function(event) {
+          const isClickInside = navToggle.contains(event.target) || navMenu.contains(event.target);
+          if (!isClickInside && navMenu.classList.contains('nav-open')) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('nav-open');
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>`;
 }
