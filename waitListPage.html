@@ -182,6 +182,8 @@
             Whether you're an event organizer, venue owner, or a professional looking to bridge the gap, we'd love to have you.
         </p>
         <form class="waitlist-form" id="waitlistForm">
+            <!-- Hidden field to catch bots. Must be empty for a valid signup. -->
+            <input type="text" name="_hp_email" style="display:none" tabindex="-1" autocomplete="off">
             <input type="text" id="name" placeholder="Enter your name (optional)">
             <input type="email" id="email" placeholder="Enter your email address" required>
             <input type="text" id="referralCode" placeholder="Referral code (if any)">
@@ -239,6 +241,7 @@
                 email: document.getElementById("email").value,
                 nycConfirmation: document.getElementById("nyc-confirmation").checked,
                 referralCode: document.getElementById("referralCode").value || null,
+                hpEmail: document.getElementsByName("_hp_email")[0].value,
             };
             if (!data.nycConfirmation) {
                 showMessage(

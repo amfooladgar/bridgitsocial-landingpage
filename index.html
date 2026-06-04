@@ -223,6 +223,8 @@
             method="post"
             action="https://formsubmit.co/partnerships@bridgitsocial.com"
           >
+            <!-- Hidden field to catch bots. Must be empty for a valid signup. -->
+            <input type="text" name="_hp_email" style="display:none" tabindex="-1" autocomplete="off">
             <div class="fields">
               <div class="field half">
                 <input type="text" name="name" placeholder="Name" />
