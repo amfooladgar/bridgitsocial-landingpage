@@ -66,8 +66,10 @@ bridgitsocial-landingpage/
 │   │   ├── browser.min.js
 │   │   ├── breakpoints.min.js
 │   │   └── util.js
-│   ├── sass/              # Sass source files (optional)
 │   └── webfonts/          # Font files
+│
+├── archive/
+│   └── legacy-sass/       # Old, unused Sass source (not built, kept for reference)
 │
 ├── blog/                  # Blog system
 │   ├── posts/            # Markdown blog posts
