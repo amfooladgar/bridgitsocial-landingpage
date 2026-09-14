@@ -54,6 +54,9 @@ function generatePostHTML(post) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${post.frontmatter.title} - Bridgit Social Blog</title>
   <meta name="description" content="${post.frontmatter.excerpt}" />
+  <!-- Analytics (see docs/ANALYTICS_SETUP.md) -->
+  <script src="../../assets/js/analytics-config.js"></script>
+  <script src="../../assets/js/analytics.js"></script>
   <meta name="author" content="${post.frontmatter.author}" />
   ${post.frontmatter.tags ? `<meta name="keywords" content="${post.frontmatter.tags.join(', ')}" />` : ''}
   <link rel="stylesheet" href="../../assets/css/main.css" />
